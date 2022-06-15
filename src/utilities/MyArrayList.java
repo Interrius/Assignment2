@@ -1,4 +1,4 @@
-package utill;
+package utilities;
 
 public class MyArrayList {
 

@@ -1,4 +1,4 @@
-package utill;
+package interfaces;
 
 public class StackADT {
 

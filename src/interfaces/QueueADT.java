@@ -99,7 +99,9 @@ public interface QueueADT<E>
 	 * Type of array to return will be determined by the runtime type
 	 * on this collection.
 	 * 
+	 * 
 	 * Pre-condition: The collection must have an element.
+	 * Post-condition: Returns an array containing all of the items
 	 * 
 	 * @param to hold the array that will contain all of the 
 	 * elements on this collection.

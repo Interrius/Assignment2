@@ -2,7 +2,7 @@ package util;
 
 import exceptions.LinkedListFullException;
 
-public class MyDLL
+public class MyDLL<E>
 {
 	private MyDLLNode head;
 	private MyDLLNode tail;
@@ -15,6 +15,8 @@ public class MyDLL
 		this.setCapacity(size);
 		hasLimit=size>0;
 	}
+	
+	public MyDLL() {}
 
 	/**
 	 * @return the capacity
@@ -50,13 +52,13 @@ public class MyDLL
 		size = 0;
 	}
 
-	public void append(Object data) throws LinkedListFullException
+	public void append(E data) throws LinkedListFullException
 	{
 		// TODO Auto-generated method stub
 
 		MyDLLNode newNode = new MyDLLNode(data);
 
-		if (this.size <= this.capacity)
+		if (this.size <= this.capacity || !this.hasLimit)
 		{
 			if (this.isEmpty())
 			{
@@ -80,7 +82,7 @@ public class MyDLL
 	 * 
 	 * @throws LinkedListFullException
 	 */
-	public void prepend(Object data) throws LinkedListFullException
+	public void prepend(E data) throws LinkedListFullException
 	{
 
 		if (size <= capacity)
@@ -106,7 +108,7 @@ public class MyDLL
 	 * 
 	 * @throws LinkedListFullException
 	 */
-	public void insert(Object data, int index) throws IndexOutOfBoundsException, LinkedListFullException
+	public void insert(E data, int index) throws IndexOutOfBoundsException, LinkedListFullException
 	{
 		// TODO Auto-generated method stub
 		if (index < 0 || index > this.size)

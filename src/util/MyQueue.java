@@ -1,5 +1,8 @@
 package util;
 
+
+import java.util.NoSuchElementException;
+
 import exceptions.EmptyQueueException;
 import exceptions.LinkedListFullException;
 import interfaces.Iterator;
@@ -12,15 +15,16 @@ public class MyQueue<E> implements QueueADT<E>
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private MyDLL queue;
+	private MyDLL<E> queue;
 
 	public MyQueue()
 	{
+		queue = new MyDLL<E>();
 	}
 
 	public MyQueue(int size)
 	{
-		queue = new MyDLL(size);
+		queue = new MyDLL<E>(size);
 	}
 
 	@Override
@@ -32,7 +36,7 @@ public class MyQueue<E> implements QueueADT<E>
 	@Override
 	public void enqueque(E element) throws NullPointerException, LinkedListFullException
 	{
-		if (element==null)
+		if (element == null)
 		{
 			throw new NullPointerException();
 		} else
@@ -98,7 +102,7 @@ public class MyQueue<E> implements QueueADT<E>
 	@Override
 	public Iterator<E> iterator()
 	{
-		MyIterator<E> i = new MyIterator<>(queue);
+		QueueIterator<E> i = new QueueIterator<>(queue);
 		return i;
 	}
 
@@ -133,4 +137,52 @@ public class MyQueue<E> implements QueueADT<E>
 		return queue.isEmpty();
 	}
 
+	public class QueueIterator<E> implements Iterator<E>
+	{
+
+		private MyDLL linkedList;
+		private MyDLLNode current;
+
+		public QueueIterator(MyDLL linkedList) throws NullPointerException
+		{
+			if (linkedList != null)
+			{
+				this.linkedList = linkedList;
+			} else
+			{
+				throw new NullPointerException();
+			}
+
+		}
+
+		@Override
+		public boolean hasNext()
+		{
+			if (current == null)
+			{
+				return linkedList.getHead() != null;
+			}
+			return current.getNext() != null;
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public E next() throws NoSuchElementException
+		{
+			if (!hasNext())
+			{
+				throw new NoSuchElementException();
+			}
+
+			if (current == null)
+			{
+				current = this.linkedList.getHead();
+			} else
+			{
+				current = this.current.getNext();
+			}
+
+			return (E) current.getElement();
+		}
+	}
 }

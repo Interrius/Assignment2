@@ -10,12 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import interfaces.MyArrayList;
 
-/**
- * class MyArrayLisTest - this class have creation of the ArrayList. method
- * 
- * @author Dhruval
- * @version 13 July 2022
- */
+
 class MyArrayListTest {
 	private MyArrayList<String> myArrayList;
 

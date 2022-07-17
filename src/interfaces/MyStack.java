@@ -5,7 +5,7 @@ public class MyStack<E> implements StackADT<E>  {
 
 	MyArrayList<E> list = new MyArrayList<>();
 
-	public MyStack(int i) {
+	public MyStack() {
 		// TODO Auto-generated constructor stub
 	}
 

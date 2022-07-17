@@ -15,16 +15,6 @@ class MyStackTests{
 
 	StackADT<String> list;
 	
-	@BeforeEach
-	void setUp() throws Exception{
-		list = new MyStack<>();
-	}
-
-	@AfterEach
-	void tearDown() throws Exception {
-		list = null;
-	}
-	
 	@Test
 	void testClear() {
 		list.clear();

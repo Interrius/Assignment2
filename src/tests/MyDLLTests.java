@@ -23,15 +23,6 @@ class MyDLLTests {
 
 	}
 	
-	/*
-	 * if list is not empty
-	 */
-	@Test
-	void testSizeNonEmpty() throws LinkedListFullException {
-		list.prepend("A");
-		list.prepend("B");
-		assertEquals(2, list.size());
-	}
 	
 	/*
 	 * 
@@ -64,22 +55,6 @@ class MyDLLTests {
 	}
 	
 
-	/**
-	 * 
-	 * if list is not empty 
-	 * prepended at the beginning
-	 */
-	@Test
-	void testprependisnotempty() {
-		list.prepend("A");
-		assertTrue(list.prepend(0, "B"));
-		assertEquals(2, list.size());
-		assertEquals("B", list.getHead().getElement());
-		assertEquals("A", list.getTail().getElement());
-		assertEquals("B", list.retrieve(0));
-		assertEquals("A", list.retrieve(1));
-	}
-	
 	
 	/**
 	 * 
@@ -88,7 +63,7 @@ class MyDLLTests {
 	 * @throws LinkedListFullException 
 	 */
 	@Test
-	void testprependE_Empty_NullPointerException() throws NullPointerException, LinkedListFullException  {
+	void testprependE() throws NullPointerException, LinkedListFullException  {
 		try {
 			list.prepend(null);
 			fail("NullPointerException wasn't thrown.");
@@ -97,10 +72,6 @@ class MyDLLTests {
 		}
 	}
 	
-
-
-
-
 	/**
 	 * 
 	 * when list is empty
@@ -135,7 +106,7 @@ class MyDLLTests {
 
 	
 	/**
-	 * Test method for {@link utility.DLL#isEmpty()}.
+	 * 
 	 * when list is empty
 	 */
 	@Test
@@ -154,63 +125,6 @@ class MyDLLTests {
 		assertEquals(false, list.isEmpty());
 	}
 	
-	/**
-	 * 
-	 * when list is not null, and toFind element is not null
-	 * @throws LinkedListFullException 
-	 */
-	@Test
-	void testContains_NotNull_NotNull() throws LinkedListFullException {
-		list.prepend("A");
-		list.prepend("B");
-		assertEquals(true, list.contains("A"));
-		assertEquals(false, list.contains("C"));
+
+	
 	}
-
-	/**
-	 * 
-	 * when list is not null, and toFind element is null
-	 * @throws LinkedListFullException 
-	 */
-	@Test
-	@SuppressWarnings("unused")
-	void testContains_NotNull_Null() throws LinkedListFullException {
-		list.prepend("A");
-		list.prepend("B");
-
-		try {
-			boolean found = list.contains(null);
-			fail("NullPointerException wasn't thrown.");
-		} catch (NullPointerException e) {
-			assertTrue(true);
-		}
-	}
-	
-	/**
-	 * 
-	 * when list is empty
-	 */
-	@Test
-	@SuppressWarnings("unused")
-	void testContains_Empty() {
-		try {
-			boolean found = list.contains("A");
-			fail("NullPointerException wasn't thrown.");
-		} catch (NullPointerException e) {
-			assertTrue(true);
-		}
-		
-		try {
-			boolean found = list.contains(null);
-			fail("NullPointerException wasn't thrown.");
-		} catch (NullPointerException e) {
-			assertTrue(true);
-		}
-	}
-	
-
-
-	
-	
-
-}

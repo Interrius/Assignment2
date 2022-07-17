@@ -70,7 +70,7 @@ class MyDLLTests {
 	 * prepended at the beginning
 	 */
 	@Test
-	void testprependIntE_NotEmpty_Beginning() {
+	void testprependisnotempty() {
 		list.prepend("A");
 		assertTrue(list.prepend(0, "B"));
 		assertEquals(2, list.size());

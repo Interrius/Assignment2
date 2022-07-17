@@ -1,6 +1,12 @@
 package util;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import interfaces.MyStack;
 
 public class xmlparser {
 	
@@ -11,26 +17,20 @@ public class xmlparser {
 	String tagType = "";
 	String rootTag = "";
 	String currentTag = "";
-	private int indexOfOpening = 0;
-	private int indexOfClosing = 0;
-	private int indexOfEndslash = 0;
+
 	//DataStrcrues
 	MyStack stack = new MyStack(30);
 	
-	public Parser(File inputF) 
+	public void Parser(File inputFile) 
     {
-        this.inputFile = inputF;
+    
         this.lineCount = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(inputFile))) {
              this.line = br.readLine();
-             //Header is printed
-             errorLogHeader();
+       
              do {
                 lineCount++;
-                //
-                //Checks if line is a tag and re-writes tagType var.
-                isTag(this.line);
-                //Absorb Root Tag
+
                 if(lineCount == 2){
                 	root = true;
                 	rootTag = line;
@@ -38,9 +38,6 @@ public class xmlparser {
                     	rootTag= rootTag.substring(0, rootTag.indexOf(" "));
                     }
                 }
-                
-                //Our Checker
-                checker();
                 
                 this.line = br.readLine();
                 

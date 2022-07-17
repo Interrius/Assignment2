@@ -5,6 +5,10 @@ public class MyStack<E> implements StackADT<E>  {
 
 	MyArrayList<E> list = new MyArrayList<>();
 
+	public MyStack(int i) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void push(E toAdd) throws NullPointerException {
 		list.add(toAdd);
 	}

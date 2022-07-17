@@ -14,8 +14,8 @@ public class xmlparser {
 	private File inputFile;
 	private int lineCount = 0;
 	private String line;
-	String tagType = "";
-	String rootTag = "";
+	String Type = "";
+	String tag = "";
 	String currentTag = "";
 
 	//DataStrcrues
@@ -33,9 +33,9 @@ public class xmlparser {
 
                 if(lineCount == 2){
                 	root = true;
-                	rootTag = line;
-                    if(rootTag.contains(" ")){
-                    	rootTag= rootTag.substring(0, rootTag.indexOf(" "));
+                	tag = line;
+                    if(tag.contains(" ")){
+                    	tag= tag.substring(0, tag.indexOf(" "));
                     }
                 }
                 
@@ -51,7 +51,7 @@ public class xmlparser {
             e.printStackTrace();
         }
         //Print Remaining Stack.
-        System.out.println("Pairs not found, else blank means no errors found!");
+        System.out.println("Cant find the pairs!");
         System.out.println(stack);
     }
 	

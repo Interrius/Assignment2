@@ -15,7 +15,7 @@ public class ArrayIterator<E> implements Iterator<E> {
 	public boolean hasNext() {
 		return (ArrayIterator.index < this.array.length - 1);
 	}
-
+	
 	@Override
 	public E next() throws NoSuchElementException {
 		if (!hasNext()) {

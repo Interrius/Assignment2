@@ -1,12 +1,12 @@
-package util;
+package interfaces;
 
 
 import java.util.NoSuchElementException;
 
 import exceptions.EmptyQueueException;
 import exceptions.LinkedListFullException;
-import interfaces.Iterator;
-import interfaces.QueueADT;
+import util.MyDLL;
+import util.MyDLLNode;
 
 public class MyQueue<E> implements QueueADT<E>
 {

@@ -14,77 +14,82 @@ public class MyStackTests {
 	
 	private MyStack<Object> stack;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+
 	@Before
 	public void setUp() throws Exception {
 		 stack = new MyStack();
 	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+
 	@After
 	public void tearDown() throws Exception {
 		stack = null;
 	}
-
+	
+	@Test
+	public void testPush() {
+		stack.push("Muffin");
+		stack.push("Ramon");
+		stack.push("Dhruval"); 
+		stack.push("Majd"); 
+		assertEquals(4, stack.size());
+	}
+	
 
 
 	@Test
 	public void testPop() {
-		stack.push(10);//element at bottom
-		stack.push(20);
-		stack.push(30); //element at top
-		
+		stack.push("Muffin");
+		stack.push("Ramon");
+		stack.push("Dhruval"); 
+		stack.push("Majd"); 
 		int poppedElement = (int) stack.pop();
-		
-		assertEquals(2, stack.size());
-		assertEquals(20, stack.peek());
-		assertEquals(30, poppedElement);
+		assertEquals(3, stack.size());
+		assertEquals("Majd", poppedElement);
 	}
 	
 	
 	@Test
 	public void testClear() {
-		stack.push(10); // Element at bottom
-		stack.push(20);
-		stack.push(30); // Element at top
-		
-		assertEquals(3, stack.size()); // ensures stack had 3 elements
-		assertEquals(30, stack.peek()); // ensures stack had 3 elements
+		stack.push("Muffin");
+		stack.push("Ramon");
+		stack.push("Dhruval"); 
+		stack.push("Majd"); 
+	
+		assertEquals(4, stack.size()); 
 		stack.clear();
 		
-		assertEquals(0, stack.size()); // ensures stack is now empty
+		assertEquals(0, stack.size()); 
 	}
 	
 	@Test
-	public void testEmptyTrue() {
-		stack.push(10); // Element at the bottom
-		stack.push(20);
-		stack.push(30); // Element at the top
+	public void testIsEmpty() {
+		stack.push("Muffin");
+		stack.push("Ramon");
+		stack.push("Dhruval"); 
+		stack.push("Majd"); 
 		
-		assertEquals(3, stack.size()); //ensures stack had 3 elements
+		assertEquals(4, stack.size()); 
 		
-		// Removes all elements; doesn't rely on clear() method.
+	
 		stack.pop();
 		stack.pop();
 		stack.pop();
+		stack.pop();
 		
-		assertEquals(0, stack.size()); //ensures stack is empty after every element is popped.
+		assertEquals(0, stack.size()); 
 		assertTrue(stack.isEmpty());
 		
 	}
 	
 	@Test
-	public void testEmptyFalse() {
-		stack.push(10); // Element at the bottom
-		stack.push(20);
-		stack.push(30); // Element at the top
+	public void testNotEmpty() {
+		stack.push("Muffin");
+		stack.push("Ramon");
+		stack.push("Dhruval"); 
+		stack.push("Majd"); 
 		
-		assertEquals(3, stack.size()); //ensures stack has 3 elements
-		
+		assertEquals(4, stack.size()); 
 		assertFalse(stack.isEmpty()); 
 	}
 	
@@ -93,33 +98,26 @@ public class MyStackTests {
 	
 	
 	@Test
-	public void testContainsFalse() {
+	public void testNotContained() {
 		
-		stack.push(10);
-		stack.push(20);
-		stack.push(30);
+		stack.push("Muffin");
+		stack.push("Ramon");
+		stack.push("Dhruval"); 
+		stack.push("Majd"); 
 		
-		assertFalse(stack.contains(40));
-		assertEquals(-1, stack.search(80));
+		assertFalse(stack.contains("Ramon2"));
+		assertEquals(-1, stack.search("Popcorn"));
 	}
 	
-	/*@Test
-	public void testContainsException() {
-		
-		stack.push(10);
-		stack.push(20);
-		stack.push(30);
-		
-		assertFalse(stack.contains(null));
-		assertEquals(-1, stack.search(null));
-	}*/
+
 	
 	
 	@Test
 	public void testSearchNotEquals() {
-		stack.push(10);
-		stack.push(20);
-		stack.push(30);
+		stack.push("Muffin");
+		stack.push("Ramon");
+		stack.push("Dhruval"); 
+		stack.push("Majd"); 
 		
 		assertFalse(stack.contains(50));
 		assertEquals(-1, stack.search(90));
@@ -129,18 +127,19 @@ public class MyStackTests {
 	public void testIterator() {
 		Iterator stackIterator = stack.iterator();
 		
-		assertNotNull(stackIterator); //ensures the iterator has an assigned object
+		assertNotNull(stackIterator); 
 	}
 	
 
 	
 	@Test
 	public void testSize() {
-		stack.push(10);
-		stack.push(20);
-		stack.push(30);
+		stack.push("Muffin");
+		stack.push("Ramon");
+		stack.push("Dhruval"); 
+		stack.push("Majd"); 
 		
-		assertEquals(3, stack.size());
+		assertEquals(4, stack.size());
 	}
 
 }

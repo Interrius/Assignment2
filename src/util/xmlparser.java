@@ -18,7 +18,6 @@ public class xmlparser {
 	String tag = "";
 	String currentTag = "";
 
-	//DataStrcrues
 	MyStack stack = new MyStack(30);
 	
 	public void Parser(File inputFile) 

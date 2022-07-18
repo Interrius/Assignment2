@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import exceptions.LinkedListFullException;
-import interfaces.Iterator;
+import util.Iterator;
 import util.MyDLL;
 
 class MyDLLTests {

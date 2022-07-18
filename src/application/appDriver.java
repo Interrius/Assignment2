@@ -5,8 +5,8 @@ import java.util.List;
 
 import exceptions.EmptyQueueException;
 import exceptions.LinkedListFullException;
-import interfaces.MyQueue;
 import util.MyDLL;
+import util.MyQueue;
 
 public class appDriver
 {

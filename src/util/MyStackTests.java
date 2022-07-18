@@ -1,7 +1,7 @@
 /**
  * 
  */
-package interfaces;
+package util;
 
 import static org.junit.Assert.*;
 

@@ -6,8 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import interfaces.MyStack;
-
 public class xmlparser {
 	
 	private boolean root = false;
@@ -17,8 +15,14 @@ public class xmlparser {
 	String Type = "";
 	String tag = "";
 	String currentTag = "";
-
 	MyStack stack = new MyStack();
+	MyQueue<String> errorQueue = null;
+	
+	public xmlparser(){
+		errorQueue = new MyQueue<String>();
+	}
+
+
 	
 	public void Parser(File inputFile) 
     {
@@ -53,5 +57,17 @@ public class xmlparser {
         System.out.println("Cant find the pairs!");
         System.out.println(stack);
     }
+	
+	private void processStartTagMultipleLines(String line) {
+		String token = line.substring(line.indexOf('<') + 1, line.indexOf('>'));
+		
+		if(token.indexOf(' ') > -1) {
+			token = token.substring(0, token.indexOf(' '));
+		}
+		
+		stack.push(token);
+		
+	}
+	
 	
 }

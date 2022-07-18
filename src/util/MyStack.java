@@ -1,4 +1,4 @@
-package interfaces;
+package util;
 
 @SuppressWarnings("serial")
 public class MyStack<E> implements StackADT<E>  {

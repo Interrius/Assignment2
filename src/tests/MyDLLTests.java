@@ -45,7 +45,7 @@ class MyDLLTests {
 	}
 	
 	/*
-	 * test for {@link ulitities.MyDLL#clear}
+	 * test for 
 	 * if list is not empty
 	 */
 	@Test
